@@ -8,21 +8,27 @@ import { InscriptionComponent } from './views/inscription/inscription.component'
 import { ProfilComponent } from './views/profil/profil.component';
 
 const routes: Routes = [
-  { path: '', canActivate: [DataUserGuard], component: HomeComponent },
   {
-    path: 'connexion',
+    path: '',
     canActivate: [DataUserGuard],
-    component: ConnexionComponent,
-  },
-  {
-    path: 'inscription',
-    canActivate: [DataUserGuard],
-    component: InscriptionComponent,
-  },
-  {
-    path: 'profil',
-    canActivate: [DataUserGuard, AuthGuard],
-    component: ProfilComponent,
+    children: [
+      { path: '', component: HomeComponent },
+      {
+        path: 'connexion',
+      
+        component: ConnexionComponent,
+      },
+      {
+        path: 'inscription',
+      
+        component: InscriptionComponent,
+      },
+      {
+        path: 'profil',
+        canActivate: [AuthGuard],
+        component: ProfilComponent,
+      },
+    ],
   },
 ];
 
