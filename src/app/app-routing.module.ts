@@ -15,12 +15,12 @@ const routes: Routes = [
       { path: '', component: HomeComponent },
       {
         path: 'connexion',
-      
+
         component: ConnexionComponent,
       },
       {
         path: 'inscription',
-      
+
         component: InscriptionComponent,
       },
       {
